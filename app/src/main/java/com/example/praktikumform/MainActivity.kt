@@ -185,6 +185,15 @@ fun TampilText(cobaViewModel: CobaViewModel = viewModel()) {
             textEmail = it
         })
 
+    SelectJk(
+        options = jenis.map {
+                id -> context.resources.getString(id) },
+        onSelectionChanged = { cobaViewModel.setJenisK(it)})
+    SelectStatus(
+        options = jenis.map {
+                id -> context.resources.getString(id) },
+        onSelectionChanged = { cobaViewModel.setStatus(it)})
+
     OutlinedTextField(
         value =textAlmt,
         singleLine = true,
@@ -195,10 +204,6 @@ fun TampilText(cobaViewModel: CobaViewModel = viewModel()) {
             textAlmt = it
         })
 
-    SelectJk(
-        options = jenis.map {
-                id -> context.resources.getString(id) },
-        onSelectionChanged = { cobaViewModel.setJenisK(it)})
     Button(
         modifier = Modifier.fillMaxWidth(),
         onClick = {
@@ -217,7 +222,7 @@ fun TampilText(cobaViewModel: CobaViewModel = viewModel()) {
             fontSize = 16.sp
         )
     }
-    Spacer(modifier = Modifier.height(100.dp))
+    Spacer(modifier = Modifier.height(5.dp))
     TextHasil(
         namanya = cobaViewModel.namaUsr,
         telponnya = cobaViewModel.noTlp,
